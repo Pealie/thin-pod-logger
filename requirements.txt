@@ -4,3 +4,8 @@
 #
 # Install (no‑op):
 # pip install -r requirements.txt
+#
+# Thin‑Pod Telemetry Logger (host)
+# Core runtime uses Python stdlib only.
+# Optional plotting requires matplotlib:
+matplotlib>=3.7
