@@ -83,17 +83,19 @@ Choose **one single breadboard row** as the **ADC node** and place all of these 
 ### Files (this repo)
 
 ```
-.
+thin-pod-telemetry/
+├─ README.md # see README in the other canvas (or reuse this repo's version)
+├─ LICENSE # MIT license
+$1├─ requirements.txt
 ├─ pico/
-│  └─ main.py                # MicroPython TCP server on Pico 2 W
+│ └─ main.py # MicroPython TCP server on Pico 2 W (ADC streaming)
 ├─ host/
-│  └─ tcp_client_csv.py      # Host CSV logger (connects to Pico)
+│ └─ tcp_client_csv.py # Host CSV logger (connects to Pico)
 ├─ docs/
-│  └─ fig/                   # placeholders for your diagrams/photos
-├─ data/.gitkeep             # keep data dir; CSV is .gitignored by default
-├─ .gitignore
-└─ README.md
-```
+│ └─ fig/
+│ └─ .gitkeep
+└─ data/
+└─ .gitkeep```
 
 ---
 
