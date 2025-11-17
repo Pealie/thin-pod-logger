@@ -167,7 +167,7 @@ Capture readings near 0 V and ~3.5 V; compute `v_batt = a*raw + b` and apply.
 
 * Ensure Pico prints an IP and `listening on 5007`.
 * Host must use that **Pico IP**.
-* Check: `netstat -an | find ":5007"` (you should see an ESTABLISHED connection while streaming).
+* Check: `netstat -an | find ":5007"` (should see an ESTABLISHED connection while streaming).
 
 **CSV ~0.00 V**
 
@@ -179,11 +179,11 @@ Capture readings near 0 V and ~3.5 V; compute `v_batt = a*raw + b` and apply.
 
 **Start‑up blips/zeros**
 
-* Normal while RC settles; you can discard the first 2–3 samples or add a 0.2 s settle before averaging.
+* Normal while RC settles; the first 2–3 samples can be discarded or add a 0.2 s settle before averaging.
 
 **Windows inbound rule confusion**
 
-* Not needed with this flow (host is the client). If you ever invert roles, use PowerShell:
+* Not needed with this flow (host is the client). If roles are ever inverted, use PowerShell:
 
   ```powershell
   New-NetFirewallRule -DisplayName "Pico_TCP_5007" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 5007 -Profile Private
@@ -221,8 +221,7 @@ Capture readings near 0 V and ~3.5 V; compute `v_batt = a*raw + b` and apply.
 
 ## License
 
-MIT for software, CC‑BY for docs (unless you prefer Apache‑2.0).
-*(Edit `LICENSE` to match your preference.)*
+MIT for software, CC‑BY for docs 
 
 ---
 
