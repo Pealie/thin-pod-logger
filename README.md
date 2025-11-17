@@ -131,6 +131,14 @@ Choose **one single breadboard row** as the **ADC node** and place all of these 
 
 > On Windows, no firewall changes are normally required because the host initiates the outbound TCP connection.
 
+Notes
+
+Keep AEM BATT− ↔ Pico GND common.
+
+With 1M/660k and 100 nF at the node, start-up blips are normal; the Pico script discards the first few samples and waits SETTLE_S.
+
+Calibrate by updating R_TOP/R_BOTTOM, ADC_REF, or CAL_GAIN.
+
 ---
 
 ## Calibration (optional but recommended)
