@@ -95,8 +95,8 @@ $1├─ requirements.txt
 │ └─ fig/
 │ └─ .gitkeep
 └─ data/
-└─ .gitkeep```
-
+└─ .gitkeep
+```
 ---
 
 ## Quick Start
