@@ -9,7 +9,7 @@
 
 ## Abstract
 
-This work implements and validates a low‑power telemetry path to monitor the supercapacitor VBATT of the Thin‑Pod harvester (AEM00941 + 5 F) during bench testing. A resistive divider (1.0 MΩ / 660 kΩ) and 100 nF RC network feed RP2040 ADC0 on a Pico 2 W. The Pico runs a TCP server (5007) streaming averaged samples every 5 s to a Windows client that logs ISO‑UTC CSV. Bring‑up required reversing client/server roles to avoid Windows inbound firewall issues and careful node wiring; typical errors (open top/bottom leg, ADC clamp) were diagnosed from data signatures. Final readings stabilised at 3.303 V vs DMM 3.340 V (≈1.1% error) at ~2 µA divider current. The pipeline is stable, reproducible, and ready to support harvester tuning.
+This work implements and validates a low‑power telemetry path to monitor the supercapacitor VBATT of the Thin‑Pod harvester (AEM00941 + 5 F) during bench testing. A resistive divider (1.0 MΩ / 660 kΩ) and 100 nF RC network feed RP2350 ADC0 on a Pico 2 W. The Pico runs a TCP server (5007) streaming averaged samples every 5 s to a Windows client that logs ISO‑UTC CSV. Bring‑up required reversing client/server roles to avoid Windows inbound firewall issues and careful node wiring; typical errors (open top/bottom leg, ADC clamp) were diagnosed from data signatures. Final readings stabilised at 3.303 V vs DMM 3.340 V (≈1.1% error) at ~2 µA divider current. The pipeline is stable, reproducible, and ready to support harvester tuning.
 
 _[Back to Contents](#contents)_
 
