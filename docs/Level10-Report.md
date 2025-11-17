@@ -59,3 +59,4 @@
 - **D. CSV excerpt**
 - **E. Firewall commands**
 - **F. Uncertainty budget**
+- **G: Change Log (key points)**
