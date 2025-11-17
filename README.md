@@ -84,7 +84,7 @@ Choose **one single breadboard row** as the **ADC node** and place all of these 
 
 ```
 thin-pod-telemetry/
-├─ README.md # see README in the other canvas (or reuse this repo's version)
+├─ README.md 
 ├─ LICENSE # MIT license
 ├─ requirements.txt
 ├─ pico/
