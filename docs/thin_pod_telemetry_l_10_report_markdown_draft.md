@@ -13,30 +13,29 @@ This work implements and validates a low‑power telemetry path to monitor the s
 ---
 
 ## Contents
-**Abstract**  
-**1. Introduction**  
-**2. Background & Requirements**  
-**3. System Design**  
-**3.1 Architecture**  
-**3.2 Hardware**  
-**3.3 Software**  
-**3.4 Risk & Ethics**  
-**4. Methods (Test Plan)**  
-**5. Results**  
-**5.1 Bring‑up chronology (fault signatures)**  
-**5.2 Accuracy & stability**  
-**5.3 Acceptance check**  
-**6. Analysis & Discussion**  
-**7. Conclusion & Future Work**  
-**References (Harvard)**  
-**Appendix A: Bill of Materials (excerpt)**  
-**Appendix B: Wiring (text)**  
-**Appendix C: Code Listings (pointers)**  
-**Appendix D: Sample CSV (excerpt)**  
-**Appendix E: Useful Commands**  
-**Appendix F: Uncertainty Budget (illustrative)**  
-**Appendix G: Change Log (key points)**  
-
+[**Abstract**](#abstract)  
+[**1. Introduction**](#1-introduction)  
+[**2. Background & Requirements**](#2-background--requirements)  
+[**3. System Design**](#3-system-design)  
+[**3.1 Architecture**](#31-architecture)  
+[**3.2 Hardware**](#32-hardware)  
+[**3.3 Software**](#33-software)  
+[**3.4 Risk & Ethics**](#34-risk--ethics)  
+[**4. Methods (Test Plan)**](#4-methods-test-plan)  
+[**5. Results**](#5-results)  
+[**5.1 Bring-up chronology (fault signatures)**](#51-bringup-chronology-fault-signatures)  
+[**5.2 Accuracy & stability**](#52-accuracy--stability)  
+[**5.3 Acceptance check**](#53-acceptance-check-readytofill)  
+[**6. Analysis & Discussion**](#6-analysis--discussion)  
+[**7. Conclusion & Future Work**](#7-conclusion--future-work)  
+[**References (Harvard)**](#references-harvard)  
+[**Appendix A: Bill of Materials (excerpt)**](#appendix-a-bill-of-materials-excerpt)  
+[**Appendix B: Wiring (text)**](#appendix-b-wiring-text)  
+[**Appendix C: Code Listings (pointers)**](#appendix-c-code-listings-pointers)  
+[**Appendix D: Sample CSV (excerpt)**](#appendix-d-sample-csv-excerpt)  
+[**Appendix E: Useful Commands**](#appendix-e-useful-commands)  
+[**Appendix F: Uncertainty Budget (illustrative)**](#appendix-f-uncertainty-budget-illustrative)  
+[**Appendix G: Change Log (key points)**](#appendix-g-change-log-key-points)  
 
 ---
 
