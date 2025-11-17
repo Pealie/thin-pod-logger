@@ -1,4 +1,4 @@
-# Thin‑Pod Telemetry Side‑Quest: Low‑Power VBATT Sensing & Wi‑Fi Logging with Pico 2 W
+# Thin‑Pod Telemetry: Low‑Power VBATT Sensing & Wi‑Fi Logging with Pico 2 W
 ### 3.3 Software
 - `pico/main.py` (MicroPython TCP server, 5 s cadence, 32× avg, LED heartbeat).
 - `host/tcp_client_csv.py` (CSV logger, reconnect).
