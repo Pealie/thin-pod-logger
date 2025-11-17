@@ -13,8 +13,7 @@ This work implements and validates a low‑power telemetry path to monitor the s
 ---
 
 ## Contents
-*Abstract
-Contents
+* Abstract
 1. Introduction
 2. Background & Requirements
 3. System Design
@@ -29,15 +28,15 @@ Contents
 5.3 Acceptance check
 6. Analysis & Discussion
 7. Conclusion & Future Work
-References (Harvard)
-Appendix A: Bill of Materials (excerpt)
-Appendix B: Wiring (text)
-Appendix C: Code Listings (pointers)
-Appendix D: Sample CSV (excerpt)
-Appendix E: Useful Commands
-Appendix F: Uncertainty Budget (illustrative)
-Appendix G: Change Log (key points)
-*
+* References (Harvard)
+* Appendix A: Bill of Materials (excerpt)
+* Appendix B: Wiring (text)
+* Appendix C: Code Listings (pointers)
+* Appendix D: Sample CSV (excerpt)
+* Appendix E: Useful Commands
+* Appendix F: Uncertainty Budget (illustrative)
+* Appendix G: Change Log (key points)
+
 
 ---
 
