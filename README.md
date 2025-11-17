@@ -80,7 +80,7 @@ Choose **one single breadboard row** as the **ADC node** and place all of these 
 * **Python 3.10+** on the host (Windows/macOS/Linux/Raspberry Pi).
 * Optional: **Thonny** for Pico file transfer/console.
 
-### Files (this repo)
+### Files 
 
 ```
 thin-pod-telemetry/
