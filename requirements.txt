@@ -1,0 +1,6 @@
+# Thin‑Pod Telemetry Logger (host)
+# No third‑party dependencies required; uses Python standard library only.
+# Tested with Python ≥ 3.10 on Windows/macOS/Linux.
+#
+# Install (no‑op):
+# pip install -r requirements.txt
