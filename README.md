@@ -6,7 +6,7 @@ Low‑power VBATT sensing and Wi‑Fi logging for the Thin‑Pod energy‑harves
 
 ## Overview
 
-This mini‑project streams the supercapacitor **VBATT** from an **AEM00941 EVK v1.2 + 5 F** cap to a host over Wi‑Fi using a **Raspberry Pi Pico 2 W**. A high‑impedance divider and small RC feed the RP2040 ADC; a MicroPython script serves data over TCP; a tiny Python client logs to CSV on your laptop/desktop (or Pi Zero 2 W).
+This mini‑project streams the supercapacitor **VBATT** from an **AEM00941 EVK v1.2 + 5 F** cap to a host over Wi‑Fi using a **Raspberry Pi Pico 2 W**. A high‑impedance divider and small RC feed the RP2350 ADC; a MicroPython script serves data over TCP; a tiny Python client logs to CSV on your laptop/desktop (or Pi Zero 2 W).
 
 **Highlights**
 
@@ -42,7 +42,7 @@ Pico 2 W (MicroPython) ──TCP:5007──▶ Host (Python client) → vbatt_lo
 * **Energy harvester:** e‑peas **AEM00941 EVK v1.2** (BATT terminals)
   *(Alt. for later experiments: Smart‑Material CL‑54; wiring differs.)*
 * **Supercapacitor:** **5.0 F / 6 V** (e.g., Eaton PTV‑6R0V505‑R)
-* **Telemetry MCU:** **Raspberry Pi Pico 2 W** (RP2040 + Wi‑Fi)
+* **Telemetry MCU:** **Raspberry Pi Pico 2 W** (RP2350 + Wi‑Fi)
 * **Divider & RC:**
 
   * R_TOP = **1.0 MΩ** (±1%)
