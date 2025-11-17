@@ -52,6 +52,8 @@ This work implements and validates a low‑power telemetry path to monitor the s
 
 **Contributions.** Hardware divider design and analysis; Pico 2 W telemetry server; Windows CSV logger; commissioning procedure; fault signatures; calibration options; acceptance results.
 
+[Back to Contents](#contents)
+
 ---
 
 ## 2. Background & Requirements
@@ -70,6 +72,8 @@ This work implements and validates a low‑power telemetry path to monitor the s
 | R2 | Sampling cadence | ≥ 1/5 s | §4.3 | *(fill)* | *(fill)* |
 | R3 | Divider overhead current | ≤ 25 µA | §3.2, §6.2 | *(fill)* | *(fill)* |
 | R4 | Robust logging | UTC CSV; reconnect | §3.3, §5.1 | *(fill)* | *(fill)* |
+
+[Back to Contents](#contents)
 
 ---
 
@@ -101,6 +105,8 @@ This work implements and validates a low‑power telemetry path to monitor the s
 ### 3.4 Risk & Ethics
 Low‑voltage system; supercaps can source high peak current—observe safe handling. ESD precautions for Pico and EVK. Data is local/non‑personal. Reproducibility prioritised via scripts and wiring notes.
 
+[Back to Contents](#contents)
+
 ---
 
 ## 4. Methods (Test Plan)
@@ -123,6 +129,8 @@ Low‑voltage system; supercaps can source high peak current—observe safe hand
 **Calibration.** Set `R_TOP/R_BOTTOM` to actual values; optional one‑line gain trim `v_batt *= 3.34/3.303`.
 
 **Validation.** Compare CSV to DMM at VBATT ~3.3 V for 5–10 minutes.
+
+[Back to Contents](#contents)
 
 ---
 
@@ -149,6 +157,8 @@ Low‑voltage system; supercaps can source high peak current—observe safe hand
 | R3 | ≤ 25 µA | §3.2 calc | *(fill)* | *(fill)* |
 | R4 | UTC CSV, reconnect | §3.3/§5.1 | *(fill)* | *(fill)* |
 
+[Back to Contents](#contents)
+
 ---
 
 ## 6. Analysis & Discussion
@@ -158,10 +168,14 @@ Low‑voltage system; supercaps can source high peak current—observe safe hand
 
 **Alternatives.** Lower‑Z divider (100 k/68 k, ~20 µA) improves settling; micropower buffer (e.g., MCP6001) isolates ADC (~100 µA). Two‑point calibration to remove residual gain error.
 
+[Back to Contents](#contents)
+
 ---
 
 ## 7. Conclusion & Future Work
 The telemetry chain is operational, robust, and energy‑light. It meets accuracy, cadence, load, and logging requirements, enabling long runs during mechanical tuning. Next steps: bake in a one‑line gain trim or two‑point calibration; auto‑plots/alarms; daily log roll‑over; integrate with harvester tests (weights/position sweeps) and compute net energy margin vs duty cycles; consider lower‑Z or buffered front‑end if higher bandwidth/precision is needed.
+
+[Back to Contents](#contents)
 
 ---
 
@@ -171,6 +185,8 @@ The telemetry chain is operational, robust, and energy‑light. It meets accurac
 - Smart‑Material Corp. (2022) *CL‑54 Energy Harvesting Circuit Datasheet*.
 - MicroPython (2024) *network, socket, machine.ADC Modules*.
 - Eaton (2021) *PTV Supercapacitor Datasheet*.
+
+[Back to Contents](#contents)
 
 ---
 
@@ -184,26 +200,36 @@ The telemetry chain is operational, robust, and energy‑light. It meets accurac
 | A5 | Supercapacitor | 5 F / 6 V | 1 |
 | A6 | Jumpers/breadboard | — | — |
 
+[Back to Contents](#contents)
+
 ## Appendix B: Wiring (text)
 - **BATT+ → 1 MΩ → node → 660 kΩ → BATT−**  
 - **node → 100 nF → BATT−**, **node → Pico GP26 (ADC0)**, **Pico GND → BATT−**
+
+[Back to Contents](#contents)
 
 ## Appendix C: Code Listings (pointers)
 - `main.py` (Pico server, 5 s cadence, averaging 32, LED heartbeat).  
 - `tcp_client_csv.py` (Windows client CSV logger, reconnect).  
 *(Insert code or link to repo snippet as needed.)*
 
+[Back to Contents](#contents)
+
 ## Appendix D: Sample CSV (excerpt)
 ```csv
 timestamp,elapsed_s,vbatt_v
 2025-11-16T22:34:02.046,0,3.3037
 2025-11-16T22:34:07.109,5,3.3026
+
+[Back to Contents](#contents)
 ...
 ```
 
 ## Appendix E: Useful Commands
 - Listener check: `netstat -an | find ":5007"`  
 - PowerShell (admin): `New-NetFirewallRule -DisplayName "Pico_TCP_5007" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 5007 -Profile Private`
+
+[Back to Contents](#contents)
 
 ## Appendix F: Uncertainty Budget (illustrative)
 | Source | Value | Sensitivity | Contribution |
@@ -214,7 +240,11 @@ timestamp,elapsed_s,vbatt_v
 | ADC quant. | 1 LSB | ∂V/∂counts | *(fill)* |
 | **Combined (RSS)** | — | — | *(fill)* |
 
+[Back to Contents](#contents)
+
 ## Appendix G: Change Log (key points)
 - Switched UDP→TCP; inverted roles (Pico server).  
 - Fixed wiring opens; added 100 nF; changed R_BOTTOM to 660 kΩ; updated scale; achieved accuracy within  ≤ ±2%.
+
+[Back to Contents](#contents)
 
