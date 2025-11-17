@@ -131,7 +131,7 @@ Choose **one single breadboard row** as the **ADC node** and place all of these 
 
 > On Windows, no firewall changes are normally required because the host initiates the outbound TCP connection.
 
-##Notes
+**Notes**
 
 Keep AEM BATT− ↔ Pico GND common.
 
