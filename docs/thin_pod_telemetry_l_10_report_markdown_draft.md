@@ -13,8 +13,8 @@ This work implements and validates a low‑power telemetry path to monitor the s
 ---
 
 ## Contents
-**Abstract**
-**1. Introduction**
+##**Abstract**
+##**1. Introduction**
 **2. Background & Requirements**
 **3. System Design**
 **3.1 Architecture**
