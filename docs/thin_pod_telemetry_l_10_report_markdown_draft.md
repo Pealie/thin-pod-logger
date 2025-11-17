@@ -194,5 +194,5 @@ timestamp,elapsed_s,vbatt_v
 
 ## Appendix G: Change Log (key points)
 - Switched UDP→TCP; inverted roles (Pico server).  
-- Fixed wiring opens; added 100 nF; changed R_BOTTOM to 660 kΩ; updated scale; achieved accuracy  ≤ ±2%.
+- Fixed wiring opens; added 100 nF; changed R_BOTTOM to 660 kΩ; updated scale; achieved accuracy within  ≤ ±2%.
 
