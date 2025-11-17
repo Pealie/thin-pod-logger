@@ -1,4 +1,4 @@
-# Thin‑Pod Telemetry Side‑Quest: Low‑Power VBATT Sensing & Wi‑Fi Logging with Pico 2 W
+# Thin‑Pod Telemetry: Low‑Power VBATT Sensing & Wi‑Fi Logging with Pico 2 W
 
 **Author:** Neil Thomson  
 **Level:** SCQF 10  
