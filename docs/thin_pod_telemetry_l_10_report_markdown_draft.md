@@ -8,8 +8,10 @@
 ---
 
 ## Abstract
-_[Back to Contents](#contents)_
+
 This work implements and validates a low‑power telemetry path to monitor the supercapacitor VBATT of the Thin‑Pod harvester (AEM00941 + 5 F) during bench testing. A resistive divider (1.0 MΩ / 660 kΩ) and 100 nF RC network feed RP2040 ADC0 on a Pico 2 W. The Pico runs a TCP server (5007) streaming averaged samples every 5 s to a Windows client that logs ISO‑UTC CSV. Bring‑up required reversing client/server roles to avoid Windows inbound firewall issues and careful node wiring; typical errors (open top/bottom leg, ADC clamp) were diagnosed from data signatures. Final readings stabilised at 3.303 V vs DMM 3.340 V (≈1.1% error) at ~2 µA divider current. The pipeline is stable, reproducible, and ready to support harvester tuning.
+
+_[Back to Contents](#contents)_
 
 ---
 
@@ -41,7 +43,7 @@ This work implements and validates a low‑power telemetry path to monitor the s
 ---
 
 ## 1. Introduction
-_[Back to Contents](#contents)_
+
 **Context.** Thin‑Pod is a vibration‑powered sensing node intended to operate near rotating machinery. During harvester tuning, repeatable VBATT telemetry is essential to correlate mechanical adjustments (cantilever mass/position) with energy balance.
 
 **Aim.** Build an end‑to‑end, low‑overhead telemetry path that logs VBATT to a host over Wi‑Fi with sufficient accuracy and cadence for multi‑hour runs.
@@ -54,10 +56,12 @@ _[Back to Contents](#contents)_
 
 **Contributions.** Hardware divider design and analysis; Pico 2 W telemetry server; Windows CSV logger; commissioning procedure; fault signatures; calibration options; acceptance results.
 
+_[Back to Contents](#contents)_
+
 ---
 
 ## 2. Background & Requirements
-_[Back to Contents](#contents)_
+
 **ADC behaviour.** RP2040 ADC is SAR with 12‑bit effective counts (MicroPython exposes 16‑bit left‑justified). Reference is the 3V3 rail, so rail tolerance/noise impact accuracy. High source impedance needs input capacitance / settle time.
 
 **Voltage measurement.** Divider converts VBATT (~2.5–4.5 V typical) to < 3.3 V at ADC. RC forms an anti‑alias/settling network; protection diodes clamp at ~3.3 V if node is driven high.
@@ -67,6 +71,7 @@ _[Back to Contents](#contents)_
 **Constraints.** Energy budget (µA‑class), minimal code footprint, reproducibility, simple tools.
 
 ### 2.1 Requirements & Acceptance Criteria (ready‑to‑fill)
+
 | Req | Description | Target | Evidence (section/page) | Result (value) | Pass/Fail |
 |---|---|---|---|---|---|
 | R1 | VBATT accuracy vs DMM | ≤ ±2% | §5.2 | *(fill)* | *(fill)* |
@@ -74,10 +79,11 @@ _[Back to Contents](#contents)_
 | R3 | Divider overhead current | ≤ 25 µA | §3.2, §6.2 | *(fill)* | *(fill)* |
 | R4 | Robust logging | UTC CSV; reconnect | §3.3, §5.1 | *(fill)* | *(fill)* |
 
+_[Back to Contents](#contents)_
+
 ---
 
 ## 3. System Design
-_[Back to Contents](#contents)_
 
 ### 3.1 Architecture
 ![Figure 1 — System architecture (placeholder)](fig/fig1_architecture.png)
@@ -105,10 +111,12 @@ _[Back to Contents](#contents)_
 ### 3.4 Risk & Ethics
 Low‑voltage system; supercaps can source high peak current—observe safe handling. ESD precautions for Pico and EVK. Data is local/non‑personal. Reproducibility prioritised via scripts and wiring notes.
 
+_[Back to Contents](#contents)_
+
 ---
 
 ## 4. Methods and Test Plan
-_[Back to Contents](#contents)_
+
 ![Figure 4 — Wiring/breadboard photo annotated (placeholder)](fig/fig4_wiring_photo.png)
 *Figure 4.* Annotated wiring to ensure the ADC node is a single row.
 
@@ -129,10 +137,12 @@ _[Back to Contents](#contents)_
 
 **Validation.** Compare CSV to DMM at VBATT ~3.3 V for 5–10 minutes.
 
+_[Back to Contents](#contents)_
+
 ---
 
 ## 5. Results
-_[Back to Contents](#contents)_
+
 ### 5.1 Bring‑up chronology (fault signatures)
 - **Symptom:** CSV ~0.016 V → **Cause:** open top leg / node to GND only.  
 - **Symptom:** CSV ~8.09 V flat → **Cause:** open bottom leg; node clamped ≈3.3 V (ADC diode).  
@@ -155,36 +165,44 @@ _[Back to Contents](#contents)_
 | R3 | ≤ 25 µA | §3.2 calc | *(fill)* | *(fill)* |
 | R4 | UTC CSV, reconnect | §3.3/§5.1 | *(fill)* | *(fill)* |
 
+_[Back to Contents](#contents)_
+
 ---
 
 ## 6. Analysis & Discussion
-_[Back to Contents](#contents)_
+
 **Error sources.** 3V3 rail ≠ 3.300 V; RP2040 ADC gain/offset; resistor tolerance (±1–5%); high‑Z node settling (mitigated by 100 nF + averaging). Breadboard wiring is a significant practical risk; signatures above enable rapid diagnosis.
 
 **Energy impact.** Divider adds ~2 µA; negligible vs harvester but acceptable for long‑term tests. If continuous ultra‑low‑power is required in‑field, gate the divider or read intermittently.
 
 **Alternatives.** Lower‑Z divider (100 k/68 k, ~20 µA) improves settling; micropower buffer (e.g., MCP6001) isolates ADC (~100 µA). Two‑point calibration to remove residual gain error.
 
+_[Back to Contents](#contents)_
+
 ---
 
 ## 7. Conclusion & Future Work
-_[Back to Contents](#contents)_
+
 The telemetry chain is operational, robust, and energy‑light. It meets accuracy, cadence, load, and logging requirements, enabling long runs during mechanical tuning. Next steps: bake in a one‑line gain trim or two‑point calibration; auto‑plots/alarms; daily log roll‑over; integrate with harvester tests (weights/position sweeps) and compute net energy margin vs duty cycles; consider lower‑Z or buffered front‑end if higher bandwidth/precision is needed.
+
+_[Back to Contents](#contents)_
 
 ---
 
 ## References (Harvard)
-_[Back to Contents](#contents)_
+
 - Raspberry Pi Ltd. (2023) *RP2040 Datasheet*.
 - e‑peas (2023) *AEM00941 EVK v1.2 User Guide*.
 - Smart‑Material Corp. (2022) *CL‑54 Energy Harvesting Circuit Datasheet*.
 - MicroPython (2024) *network, socket, machine.ADC Modules*.
 - Eaton (2021) *PTV Supercapacitor Datasheet*.
 
+_[Back to Contents](#contents)_
+
 ---
 
 ## Appendix A: Bill of Materials (excerpt)
-_[Back to Contents](#contents)_
+
 | Item | Part | Value / Notes | Qty |
 |---|---|---|---|
 | A1 | Pico 2 W | RP2040 + Wi‑Fi | 1 |
@@ -194,36 +212,45 @@ _[Back to Contents](#contents)_
 | A5 | Supercapacitor | 5 F / 6 V | 1 |
 | A6 | Jumpers/breadboard | — | — |
 
+_[Back to Contents](#contents)_
 
 ## Appendix B: Wiring (text)
-_[Back to Contents](#contents)_
+
 - **BATT+ → 1 MΩ → node → 660 kΩ → BATT−**  
 - **node → 100 nF → BATT−**, **node → Pico GP26 (ADC0)**, **Pico GND → BATT−**
 
-## Appendix C: Code Listings (pointers)
 _[Back to Contents](#contents)_
+
+## Appendix C: Code Listings (pointers)
+
 - `main.py` (Pico server, 5 s cadence, averaging 32, LED heartbeat).  
 - `tcp_client_csv.py` (Windows client CSV logger, reconnect).  
 *(Insert code or link to repo snippet as needed.)*
 
+_[Back to Contents](#contents)_
+
 
 ## Appendix D: Sample CSV (excerpt)
-_[Back to Contents](#contents)_
+
 ```csv
 timestamp,elapsed_s,vbatt_v
 2025-11-16T22:34:02.046,0,3.3037
 2025-11-16T22:34:07.109,5,3.3026
 
+_[Back to Contents](#contents)_
+
 ...
 ```
 
 ## Appendix E: Useful Commands
-_[Back to Contents](#contents)_
+
 - Listener check: `netstat -an | find ":5007"`  
 - PowerShell (admin): `New-NetFirewallRule -DisplayName "Pico_TCP_5007" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 5007 -Profile Private`
 
-## Appendix F: Uncertainty Budget (illustrative)
 _[Back to Contents](#contents)_
+
+## Appendix F: Uncertainty Budget (illustrative)
+
 | Source | Value | Sensitivity | Contribution |
 |---|---|---|---|
 | 3V3 ref | ±1.5% | ∂V/∂Vref | *(fill)* |
@@ -232,10 +259,14 @@ _[Back to Contents](#contents)_
 | ADC quant. | 1 LSB | ∂V/∂counts | *(fill)* |
 | **Combined (RSS)** | — | — | *(fill)* |
 
+_[Back to Contents](#contents)_
+
 
 ## Appendix G: Change Log (key points)
-_[Back to Contents](#contents)_
+
 - Switched UDP→TCP; inverted roles (Pico server).  
 - Fixed wiring opens; added 100 nF; changed R_BOTTOM to 660 kΩ; updated scale; achieved accuracy within  ≤ ±2%.
+
+_[Back to Contents](#contents)_
 
 
