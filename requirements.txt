@@ -8,4 +8,4 @@
 # Thin‑Pod Telemetry Logger (host)
 # Core runtime uses Python stdlib only.
 # Optional plotting requires matplotlib:
-matplotlib>=3.7
+# matplotlib>=3.7
