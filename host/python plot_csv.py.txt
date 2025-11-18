@@ -1,0 +1,4 @@
+python plot_csv.py
+
+
+python plot_csv.py --warmup 60 --vmin 2.6 --vmax 3.5 --dmm 3.34
