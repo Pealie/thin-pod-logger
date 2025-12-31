@@ -87,15 +87,11 @@ thin-pod-telemetry/
 ├─ README.md 
 ├─ LICENSE # MIT license
 ├─ requirements.txt
-├─ pico/
-│ └─ main.py # MicroPython TCP server on Pico 2 W (ADC streaming)
-├─ host/
-│ └─ tcp_client_csv.py # Host CSV logger (connects to Pico)
 ├─ docs/
-│ └─ fig/
-│ └─ .gitkeep
-└─ data/
-└─ .gitkeep
+├─ host/
+├─ images/
+├─ pico/
+
 ```
 ---
 
