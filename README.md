@@ -91,7 +91,6 @@ thin-pod-telemetry/
 ├─ host/
 ├─ images/
 ├─ pico/
-
 ```
 ---
 
