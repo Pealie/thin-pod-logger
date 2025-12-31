@@ -86,12 +86,10 @@ _[Back to Contents](#contents)_
 ## 3. System Design
 
 ### 3.1 Architecture
-![Figure 1 — System architecture (placeholder)](fig/fig1_architecture.png)
-*Figure 1.* AEM00941 EVK → 5 F supercap (BATT) → divider node → Pico 2 W ADC0 (GP26) → TCP server (5007) → Windows client → `vbatt_log.csv`. LED heartbeat per sample.
+AEM00941 EVK → 5 F supercap (BATT) → divider node → Pico 2 W ADC0 (GP26) → TCP server (5007) → Windows client → `vbatt_log.csv`. LED heartbeat per sample.
 
 ### 3.2 Hardware
-![Figure 2 — Divider & ADC front‑end schematic (placeholder)](fig/fig2_divider_adc.png)
-*Figure 2.* Divider and RC network feeding RP2040 ADC0.
+Divider and RC network feeding RP2040 ADC0.
 
 - **Divider:** R_TOP = 1.0 MΩ; R_BOTTOM = 660 kΩ; ratio = 660 k / 1.66 M ≈ **0.3976**.  
   Rebuild scale **VBATT_SCALE** = (R_TOP + R_BOTTOM) / R_BOTTOM ≈ **2.515**.
@@ -101,8 +99,7 @@ _[Back to Contents](#contents)_
 - **Grounding/decoupling:** Common BATT− to Pico GND; 100 nF at node→GND placed near GP26.
 
 ### 3.3 Software
-![Figure 3 — Network flow (placeholder)](fig/fig3_network_flow.png)
-*Figure 3.* Pico 2 W (server) streaming to Windows client (CSV logger).
+Pico 2 W (server) streaming to Windows client (CSV logger).
 
 - **Pico (`main.py`):** MicroPython; STA Wi‑Fi; TCP **server** on 5007; average 32 ADC reads; 5 s cadence; LED blink per send; prints IP and client.
 - **Laptop (`tcp_client_csv.py`):** TCP **client**; auto‑reconnect; line‑buffered CSV with `timestamp,elapsed_s,vbatt_v`.
@@ -117,8 +114,7 @@ _[Back to Contents](#contents)_
 
 ## 4. Methods and Test Plan
 
-![Figure 4 — Wiring/breadboard photo annotated (placeholder)](fig/fig4_wiring_photo.png)
-*Figure 4.* Annotated wiring to ensure the ADC node is a single row.
+Annotated wiring to ensure the ADC node is a single row.
 
 **Rig.** AEM00941 EVK v1.2 with 5 F/6 V cap; Pico 2 W on solderless breadboard; Windows 11 laptop on same Wi‑Fi.
 
